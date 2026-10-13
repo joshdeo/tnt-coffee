@@ -1,0 +1,67 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Build a Drink | TNT Cup Coffee</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;1,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"><link rel="stylesheet" href="site.css"><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style></head><body><script>(function(){try{if(sessionStorage.getItem('tnt.curtain')){sessionStorage.removeItem('tnt.curtain');document.documentElement.classList.add('entering')}}catch(e){}})();</script><div class="veil" aria-hidden="true"></div><header class="top"><div class="wrap top-in"><a class="mark" href="index.html" aria-label="TNT Cup Coffee home"><span class="mark-tnt">TNT</span><span class="mark-cup">cup</span><span class="mark-sub">coffee</span></a><nav class="links" aria-label="Pages"><a href="menu.html">Menu</a><a href="build.html" aria-current="page">Build a drink</a><a href="game.html">Brew game</a><a href="about.html">About</a><a href="visit.html">Visit</a></nav><div class="pill"><span class="dot" id="pillDot"></span><span id="pillText">Open daily</span></div></div></header><main><div class="wrap"><div class="phead par" style="--d:-6"><p class="eyebrow">Make it yours</p><h1 class="split">Build a <em>drink</em></h1><p class="lede">Pick a drink, choose a size and stack your add-ons. The cup fills and changes colour as you go.</p></div></div>
+<section class="block" style="padding-top:8px"><div class="wrap">
+  <div class="build">
+    <div class="steps spot">
+      <div class="step"><label class="lbl" for="bDrink">Start with</label><select id="bDrink"></select></div>
+      <div class="step" id="tempWrap"><span class="lbl" id="tempLbl">Hot or iced</span>
+        <div class="seg temp" role="radiogroup" aria-labelledby="tempLbl">
+          <label><input type="radio" name="bTemp" value="Hot"><span>Hot</span></label>
+          <label><input type="radio" name="bTemp" value="Iced"><span>Iced</span></label>
+        </div>
+      </div>
+      <div class="step"><span class="lbl" id="sizeLbl">Size</span>
+        <div class="seg" id="sizeWrap" role="radiogroup" aria-labelledby="sizeLbl">
+          <label><input type="radio" name="bSize" value="S"><span>Small<small id="pS"></small></span></label>
+          <label><input type="radio" name="bSize" value="M"><span>Medium<small id="pM"></small></span></label>
+        </div>
+        <p class="note" id="oneSize" hidden>This drink comes in one size.</p>
+      </div>
+      <div class="step" id="flWrap"><span class="lbl" id="flLbl">Flavour</span><div class="fls" id="flList" role="radiogroup" aria-labelledby="flLbl"></div></div>
+      <div class="step"><span class="lbl">Add-ons</span><div id="aoList"></div></div>
+    </div>
+    <div class="side">
+      <div class="cupwrap" id="cupwrap">
+        <div class="stage" id="stage">
+          <canvas id="cup" role="img" aria-label="A 3D cup that fills with your drink"></canvas>
+          <p class="stage-tag" id="stageTag"></p>
+          <p class="stage-price" id="stagePrice">$0.00</p>
+          <p class="stage-hint">Drag to spin</p>
+          <button class="btn primary sm stage-btn" id="showBarista" type="button">Show at the counter</button>
+        </div>
+      </div>
+      <aside class="order spot" aria-label="Your drink">
+        <h3>Your drink</h3>
+        <ul class="legend" id="legend" aria-label="What is in the cup"></ul>
+        <ul class="lines" id="lines"></ul>
+        <div class="total"><span>Estimated total</span><strong id="total">$0.00</strong></div>
+        <div class="counter-note">
+          <p><strong>Ordering in the shop?</strong> Tap Show at the counter and turn your phone around. The barista sees your drink, size and add-ons in big type. No reading it out, no mix ups.</p>
+          <button class="btn primary mag" id="showCounter" type="button">Show at the counter</button>
+        </div>
+        <p class="fine">Estimate before tax. Payment happens at the counter. Colours are a guide drawn from each drink name, so the team makes the final call on the real thing.</p>
+      </aside>
+    </div>
+  </div>
+</div></section>
+</main><footer class="foot"><div class="wrap"><div class="foot-big" aria-hidden="true">TNT <em>cup</em> coffee</div><span>TNT Cup Coffee, 25 Dundas St W, Mississauga, ON L5B 1H2. Open daily 8AM to 11PM.</span><nav aria-label="Footer"><a href="menu.html">Menu</a><a href="build.html">Build a drink</a><a href="game.html">Brew game</a><a href="about.html">About</a><a href="visit.html">Visit</a></nav></div></footer>
+<div class="ticket" id="ticket" role="dialog" aria-modal="true" aria-labelledby="tkTitle" hidden>
+  <div class="wrap tk-in">
+    <div class="tk-top">
+      <span class="mark"><span class="mark-tnt">TNT</span><span class="mark-cup">cup</span><span class="mark-sub">coffee</span></span>
+      <button class="btn sm" id="tkClose" type="button">Close</button>
+    </div>
+    <div class="tk-grid">
+      <div class="tk-stage" id="tkStage"></div>
+      <div class="tk-text">
+        <p class="eyebrow">Order ticket</p>
+        <h2 id="tkTitle">Your order</h2>
+        <div class="tk-name"><label for="tkName">Name for the order</label><input id="tkName" type="text" maxlength="24" autocomplete="off" placeholder="Your name"></div>
+        <ul class="tk-lines" id="tkLines"></ul>
+        <div class="tk-total"><span>Estimated total before tax</span><strong id="tkTotal">$0.00</strong></div>
+        <p class="fine">Turn this screen toward the barista. Payment happens at the counter.</p>
+        <a class="btn" id="tkGame" href="game.html">Waiting? Play the brew game</a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/shaders/CopyShader.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/shaders/LuminosityHighPassShader.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/shaders/BokehShader.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/postprocessing/EffectComposer.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/postprocessing/ShaderPass.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/postprocessing/RenderPass.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/postprocessing/UnrealBloomPass.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/postprocessing/BokehPass.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/geometries/RoundedBoxGeometry.js"></script><script src="data.js"></script><script src="common.js"></script><script src="fx.js"></script><script src="bg.js"></script><script src="cup.js"></script><script src="build.js"></script><script src="polish.js"></script></body></html>

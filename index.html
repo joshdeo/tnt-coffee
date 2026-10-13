@@ -1,0 +1,82 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>TNT Cup Coffee</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;1,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"><link rel="stylesheet" href="site.css"></head><body><script>(function(){try{if(sessionStorage.getItem('tnt.curtain')){sessionStorage.removeItem('tnt.curtain');document.documentElement.classList.add('entering')}}catch(e){}})();</script>
+<div class="intro" id="intro" hidden>
+  <canvas id="introCanvas" aria-hidden="true"></canvas>
+  <div class="intro-load" aria-hidden="true">
+    <span class="mark"><span class="mark-tnt">TNT</span><span class="mark-cup">cup</span><span class="mark-sub">coffee</span></span>
+    <span class="intro-fuse"><i></i></span>
+  </div>
+  <div class="intro-ui">
+    <p class="intro-eyebrow">25 Dundas St W, Mississauga</p>
+    <p class="intro-title" aria-label="TNT Cup Coffee"><span class="w"><span class="wi g">TNT</span></span> <span class="w"><span class="wi" style="transition-delay:.09s">Cup</span></span> <span class="w"><span class="wi" style="transition-delay:.18s">Coffee</span></span></p>
+  </div>
+  <button class="intro-skip" id="introSkip" type="button">Skip intro</button>
+</div>
+<script>(function(){var el=document.getElementById('intro'),s=false,r=false;
+try{s=sessionStorage.getItem('tnt.intro')==='1'}catch(e){}
+try{r=window.matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){}
+if(!el||s||r)return;
+el.hidden=false;document.documentElement.classList.add('intro-on');window.TNT_INTRO=1;
+setTimeout(function(){if(window.TNT&&window.TNT.introStarted)return;if(el.parentNode)el.parentNode.removeChild(el);
+document.documentElement.classList.remove('intro-on');if(window.TNT)window.TNT.introActive=false;
+try{window.dispatchEvent(new Event('tnt:introdone'))}catch(e){}},9000);})();</script>
+<div class="veil" aria-hidden="true"></div><header class="top"><div class="wrap top-in"><a class="mark" href="index.html" aria-label="TNT Cup Coffee home"><span class="mark-tnt">TNT</span><span class="mark-cup">cup</span><span class="mark-sub">coffee</span></a><nav class="links" aria-label="Pages"><a href="menu.html">Menu</a><a href="build.html">Build a drink</a><a href="game.html">Brew game</a><a href="about.html">About</a><a href="visit.html">Visit</a></nav><div class="pill"><span class="dot" id="pillDot"></span><span id="pillText">Open daily</span></div></div></header><main>
+<section class="hero-wrap">
+  <div class="wrap hero">
+    <div class="hero-copy">
+      <p class="eyebrow">25 Dundas St W, Mississauga</p>
+      <h1 class="split">Light the <em>fuse</em> on your day.</h1>
+      <p class="lede">Specialty coffee, matcha and smoothies in the heart of Mississauga. Fast Wi-Fi, soft natural light and a seat for as long as your to-do list takes.</p>
+      <div class="actions"><a class="btn primary mag" href="menu.html">See the menu</a><a class="btn" href="build.html">Build a drink</a></div>
+      <button class="replay" id="replayIntro" type="button"><svg class="bolt-ico" viewBox="0 0 24 36" aria-hidden="true"><path d="M14 0 2 20h8L6 36 22 13h-9l5-13z" fill="currentColor"/></svg> Replay the intro</button>
+    </div>
+    <div class="hero-stage" id="heroStage">
+      <div class="spin" aria-hidden="true">
+        <svg viewBox="0 0 200 200"><defs><path id="circ" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs>
+          <text><textPath href="#circ" textLength="496" lengthAdjust="spacing">Freshly brewed &#8226; 25 Dundas St W &#8226; Mississauga &#8226;</textPath></text></svg>
+        <span class="spin-core"><svg class="bolt-ico" viewBox="0 0 24 36" aria-hidden="true"><path d="M14 0 2 20h8L6 36 22 13h-9l5-13z" fill="currentColor"/></svg></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="live"><div class="wrap">
+  <aside class="board board-wide spot" aria-label="Live shop status">
+    <div class="board-left">
+      <p class="kicker">Live from Dundas</p>
+      <div class="b-status"><span class="dot" id="dot"></span><div><p class="b-title" id="bTitle">Open daily</p><p class="b-sub" id="bSub">8AM to 11PM</p></div></div>
+      <div>
+        <div class="fuse-line"><div class="fuse-burnt" id="burnt"></div><div class="fuse-spark" id="spark"></div></div>
+        <div class="fuse-ends"><span>8AM</span><span class="mid" id="fuseMid"></span><span>11PM</span></div>
+      </div>
+    </div>
+    <div class="now" id="now"></div>
+  </aside>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <div class="head-row" data-reveal>
+    <div class="sh"><p class="eyebrow">Signature board</p><h2>Start with the <em>house</em> drinks</h2><p>Tap one to pour it in 3D, then make it yours with size, milk and add-ons.</p></div>
+    <a class="btn" href="menu.html">Full menu</a>
+  </div>
+  <div class="sigs" id="sigs" data-reveal></div>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <div class="sh" data-reveal><p class="eyebrow">Look around</p><h2>Five ways <em>in</em></h2></div>
+  <div class="tiles five">
+    <a class="tile tilt spot" data-reveal href="build.html"><div><span class="tnum">Build</span><h3>Pour it in 3D</h3><p>Pick a size, flavour and add-ons and watch the cup fill and change colour.</p></div><span class="go">Start building &rarr;</span></a>
+    <a class="tile tilt spot" data-reveal href="game.html"><div><span class="tnum">Brew game</span><h3>Pull the perfect shot</h3><p>Grind, dose, tamp and time a real espresso while you wait. Learn what baristas aim for.</p></div><span class="go">Play the game &rarr;</span></a>
+    <a class="tile tilt spot" data-reveal href="menu.html"><div><span class="tnum">Menu</span><h3>Every drink on the board</h3><p>Search, filter and flip lattes and matcha between hot and iced prices.</p></div><span class="go">Open the menu &rarr;</span></a>
+    <a class="tile tilt spot" data-reveal href="about.html"><div><span class="tnum">About</span><h3>The room and the people</h3><p>Pastries, quick bites and the team behind the counter.</p></div><span class="go">Read more &rarr;</span></a>
+    <a class="tile tilt spot" data-reveal href="visit.html"><div><span class="tnum">Visit</span><h3>Find us on Dundas</h3><p>Hours, address, phone and directions.</p></div><span class="go">Plan your visit &rarr;</span></a>
+  </div>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <div class="strip spot" data-reveal>
+    <div><p class="l">Address</p><p class="v">25 Dundas St W, Mississauga, ON L5B 1H2</p></div>
+    <div><p class="l">Today</p><p class="v" id="todayLine">Open daily 8AM to 11PM</p></div>
+    <div><p class="l">Phone</p><p class="v">+1 (647) 368-6800</p></div>
+  </div>
+</div></section>
+</main><footer class="foot"><div class="wrap"><div class="foot-big" aria-hidden="true">TNT <em>cup</em> coffee</div><span>TNT Cup Coffee, 25 Dundas St W, Mississauga, ON L5B 1H2. Open daily 8AM to 11PM.</span><nav aria-label="Footer"><a href="menu.html">Menu</a><a href="build.html">Build a drink</a><a href="game.html">Brew game</a><a href="about.html">About</a><a href="visit.html">Visit</a></nav></div></footer><script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/shaders/CopyShader.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/shaders/LuminosityHighPassShader.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/shaders/BokehShader.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/postprocessing/EffectComposer.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/postprocessing/ShaderPass.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/postprocessing/RenderPass.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/postprocessing/UnrealBloomPass.js"></script><script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/postprocessing/BokehPass.js"></script><script src="data.js"></script><script src="common.js"></script><script src="fx.js"></script><script src="bg.js"></script><script src="intro.js"></script><script src="hero.js"></script><script src="polish.js"></script></body></html>
